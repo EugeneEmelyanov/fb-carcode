@@ -5,6 +5,56 @@
     <title>FB-CarCode</title>
 </head>
 <body>
+<script>
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId      : '481882955325764',
+            xfbml      : true,
+            version    : 'v2.6'
+        });
+    };
+
+    (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+<div>First way</div>
+<div class="fb-messengermessageus"
+     messenger_app_id="481882955325764"
+     page_id="554939731328724"
+     color="blue"
+     size="large" ></div>
+
+<div>Second Way</div>
+<div style="width:100px; height:100px">
+    <div class="fb-send-to-messenger"
+         messenger_app_id="481882955325764"
+         page_id="554939731328724"
+         data-ref="1asdfasdf"
+         color="white"
+         size="xlarge"></div>
+</div>
+
+<div id="fb-root"></div>
+<div>Third way</div>
+
+    <div class="fb-page"
+         data-href="https://www.facebook.com/carcodetestdealership"
+         data-tabs="messages"
+         data-small-header="false"
+         data-adapt-container-width="true"
+         data-hide-cover="true"
+         data-show-facepile="true">
+        <div class="fb-xfbml-parse-ignore">
+            <blockquote cite="https://www.facebook.com/carcodetestdealership">
+                <a href="https://www.facebook.com/carcodetestdealership">CarCode</a></blockquote></div></div>
+
+
+
 
 </body>
 </html>
