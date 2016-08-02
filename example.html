@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FB sample</title>
+    <script src='https://www.carcodesms.com/widgets/2953.js' type='text/javascript' async defer></script>
+    <!--2953 is carcode dealer id
+    in order to do this, you need to invoke
+    http://api.carcode.com/carcode/v1/api/dealer?rooftopId=3534, where 3534 is edmunds dealerId (rooftopId)-->
+    
+    <script type='text/javascript'>
+        window.__carcode = {
+            skipButton: true,   /*doesn't attach default floating button to page*/
+            alwaysOpenForm: true, /* always open form, even on mobile */
+            ready: function() { /*fires when the Carcode configured widget script below is loaded and ready */
+
+                var widget = new CarcodeWidget(),
+                        buttons = document.querySelectorAll(".sms-button");
+                for (var i = 0; i < buttons.length; i++) {
+                    buttons[i].onclick = widget.clickHandler;
+                }
+            }
+        };
+    </script>
+</head>
+<body>
+    <a href="sms://+16264145621" class="sms-button" style="background-color: orange; width: 95%; margin: 10px auto; display: block; padding: 15px 0; text-align: center; color: white; font-weight: bold;">FB CTA</a>
+</body>
+</html>
