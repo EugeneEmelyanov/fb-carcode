@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ford dealer SRP</title>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+
+    <!--ForDirect code starts below this line -->
+
+    <!-- In order to make it work you need the following:
+    1. Script A
+    2. Script B
+    3. Specify data-numbers data-title like in Example 1 on dealer's CTA. Please, note, that CTA should be <a href element -->
+
+    <!--Script A. default Ford.com widget. If you would like to change look&feel, please, contact jcleverly@edmunds.com -->
+    <script src='https://www.carcodesms.com/widgets/50082.js' type='text/javascript' async defer ></script>
+
+    <!--Script B. CarCode sdk script -->
+    <script>
+        window.__carcode = {
+            skipButton: true, /*doesn't attach default floating button to page*/
+            ready: function() { /*fires when the Carcode configured widget script below is loaded and ready */
+                var widget = new CarcodeWidget();
+                var msg = "Enter your mobile phone number below, and someone from #dealer_name will respond with a text to your phone right away."
+                var buttons = $(".sms-button").on('click', function(e) {
+                    widget.clickHandler(e);
+                    if (e.target.dataset.title) {
+                        $("#carcodesms-msg").html(msg.replace("#dealer_name", e.target.dataset.title));
+                    }
+                });
+            }
+        };
+    </script>
+</head>
+<body>
+    <div class="col-md-12">
+        <h1 class="page-header">FordDirect example</h1>
+    </div>
+    <div class="col-md-12">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <label>Henry Honda</label>
+            </div>
+            <div class="panel-body">
+                <!-- Example 1 -->
+                <!--carcode uses data-numbers as a phone number when sending sms. Format: data-numbers="sales|service=sms://[phone number]"-->
+                <!-- data-title is used by custom script to change popup title-->
+                <a href="javascript:void(0)"
+                   data-numbers="sales=sms://+16264145621"
+                   data-title="Henry Honda"
+                   class="sms-button btn-info btn">Text Us</a>
+            </div>
+        </div>
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <label>Spartan Honda</label>
+            </div>
+            <div class="panel-body">
+                <a href="javascript:void(0)"
+                   data-numbers="sales=sms://+12016032788"
+                   data-title="Spartan Honda"
+                   class="sms-button btn-info btn">Text Us</a>
+            </div>
+        </div>
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <label>Edmunds spyker</label>
+            </div>
+            <div class="panel-body">
+                <a href="javascript:void(0)"
+                   data-numbers="sales=sms://+14804189006"
+                   data-title="Edmunds Spyker"
+                   class="sms-button btn-info btn">Text Us</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-9"></div>
+</body>
+</html>
