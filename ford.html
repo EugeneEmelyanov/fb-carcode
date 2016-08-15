@@ -19,21 +19,8 @@
     <script src='https://www.carcodesms.com/widgets/50082.js' type='text/javascript' async defer ></script>
 
     <!--Script B. CarCode sdk script -->
-    <script>
-        window.__carcode = {
-            skipButton: true, /*doesn't attach default floating button to page*/
-            ready: function() { /*fires when the Carcode configured widget script below is loaded and ready */
-                var widget = new CarcodeWidget();
-                var msg = "Enter your mobile phone number below, and someone from #dealer_name will respond with a text to your phone right away."
-                var buttons = $(".sms-button").on('click', function(e) {
-                    widget.clickHandler(e);
-                    if (e.target.dataset.title) {
-                        $("#carcodesms-msg").html(msg.replace("#dealer_name", e.target.dataset.title));
-                    }
-                });
-            }
-        };
-    </script>
+    <script src="https://www.carcodesms.com/sdks/50082.js" type="text/javascript"></script>
+
 </head>
 <body>
     <div class="col-md-12">
@@ -51,6 +38,7 @@
                 <a href="javascript:void(0)"
                    data-numbers="sales=sms://+16264145621"
                    data-title="Henry Honda"
+                   data-tags="#ford_com"
                    class="sms-button btn-info btn">Text Us</a>
             </div>
         </div>
@@ -62,6 +50,7 @@
                 <a href="javascript:void(0)"
                    data-numbers="sales=sms://+12016032788"
                    data-title="Spartan Honda"
+                   data-tags="#ford_com"
                    class="sms-button btn-info btn">Text Us</a>
             </div>
         </div>
@@ -73,6 +62,7 @@
                 <a href="javascript:void(0)"
                    data-numbers="sales=sms://+14804189006"
                    data-title="Edmunds Spyker"
+                   data-tags="#ford_com"
                    class="sms-button btn-info btn">Text Us</a>
             </div>
         </div>
