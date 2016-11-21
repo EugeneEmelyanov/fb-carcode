@@ -21,3 +21,5 @@ function enhanceFunctionality() {
         }
     }
 }
+
+checkWidget();
