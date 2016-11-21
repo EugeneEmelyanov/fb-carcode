@@ -1,20 +1,14 @@
-/**
- * Created by Yauhen_Yemelyanau on 11/7/2016.
- */
-var js = document.createElement("script");
 
-js.type = "text/javascript";
-js.src = "https://www.carcodesms.com/widgets/w/m.textdemo.com.js";
 
-document.head.appendChild(js);
 
-js.onreadystatechange = js.onload = function() {
-    if ((!js.readyState || /loaded|complete/.test(js.readyState))) {
-        setTimeout(function(){
-            enhanceFunctionality();
-        }, 1000);
+function checkWidget() {
+    var el = document.getElementById("CarcodeWidgetHubWidgetsHubButton");
+    if (el) {
+        enhanceFunctionality();
+    } else {
+        setTimeout(checkWidget, 1000);
     }
-};
+}
 
 function enhanceFunctionality() {
     var el = document.getElementById("CarcodeWidgetHubWidgetsHubButton");
