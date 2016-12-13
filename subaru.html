@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Subaru main page</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src='https://www.carcodesms.com/widgets/52006.js' type='text/javascript' async defer ></script>
+
+    <script>
+        $(function(e){
+
+            $("#submit_message").on("click", function(e) {
+                var text = $("#message_input").val();
+                var toNumber =  $(".sms-button-forester-1").attr("data-number");
+                var fromNumber = $("#from_number_input").val();
+
+                $.ajax({
+                    url:"https://www.carcode.com/carcode/v1/dealer/sms",
+                    type: "POST",
+                    data: "From="+ encodeURIComponent(fromNumber) +
+                    "&To=" + encodeURIComponent(toNumber) + "&Body=" + encodeURIComponent(text),
+                    success: onAjaxSuccess
+                })
+            });
+
+
+
+            function onAjaxSuccess() {
+                $("#modal").modal("hide");
+            }
+        });
+
+    </script>
+
+    <script type="text/javascript">
+        window.__carcode = {
+            skipButton: true, /*this will prevent attaching a default floating button to page*/
+            ready: function() { /*fires when the Carcode configured widget script below is loaded and ready */
+                var widget = new CarcodeWidget();
+                var buttons = document.querySelectorAll(".sms-button-impreza-1");
+
+                for(var i = 0; i < buttons.length; i ++) {
+                    buttons[i].onclick = widget.clickHandler;
+                }
+            }
+        };
+
+    </script>
+</head>
+<body>
+<div class="col-md-12">
+    <h1 class="page-header">Subaru Owners</h1>
+</div>
+<div class="col-md-12">
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <label>Subaru Forester</label>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-5">
+                    <img src="https://media.ed.edmunds-media.com/subaru/forester/2017/oem/2017_subaru_forester_4dr-suv_25i-touring-pzev_fq_oem_1_400.jpg">
+                </div>
+                <div class="col-md-7">
+                    <span><h4>Edmunds Summary Review of the 2017 Subaru Forester SUV</h4>
+
+Do you need a crossover that can handle whatever life throws at it? The 2017 Subaru Forester delivers with standard all-wheel drive, a roomy interior and plenty of ground clearance for off-road excursions. You can even add a turbocharged engine, or stick with the base engine for better fuel economy. Let's take a look at the Forester's full range of talents.</span>
+                    <br><br>
+                    <a
+                       data-number="+17733218052"
+                       data-toggle="modal" href="#modal"
+                       class="sms-button-forester-1 btn-info btn">Text Subaru Forester Owner</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <label>Subaru Impreza</label>
+        </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-5">
+                <img src="https://media.ed.edmunds-media.com/subaru/impreza/2017/oem/2017_subaru_impreza_sedan_20i-sport_fq_oem_3_400.jpg">
+            </div>
+            <div class="col-md-7">
+                    <span><h4>Edmunds Summary Review of the 2017 Subaru Impreza</h4>
+                   There's a lot to be interested in when it comes to the 2017 Subaru Impreza. This year's model has a roomier interior, a more powerful and fuel-efficient engine, and all sorts of new available safety features. All-wheel drive is still standard, too. If you're shopping for a small sedan or hatchback, we think the Impreza will be a great choice.
+                <br><br>
+                <a class="sms-button-impreza-1 btn-info btn">Text Subaru Subaru Impreza Owner</a>
+
+            </div>
+        </div>
+    </div>
+</div>
+    </div>
+
+
+<div id="modal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Text with Subaru Impreza Owner</h4>
+            </div>
+            <div class="modal-body">
+                <p>Please, leave a message for Subaru Impreza Owner</p>
+                <div>
+                    Your phone number
+                    <input id="from_number_input"
+                           placeholder="+15551981781"
+                           class="form-control">
+                </div>
+                <div>
+                    Your message
+                    <textarea id="message_input"
+                              placeholder="Your message"
+                              class="form-control"
+                              rows="5"></textarea>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button id="submit_message" type="button" class="btn btn-default">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
