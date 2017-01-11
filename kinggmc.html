@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>King GMC</title>
+    <script type="text/javascript">
+        window.__carcode = {
+            skipButton: true, /*doesn't attach default floating button to page*/
+            ready: function (data) { /*fires when the Carcode configured widget script below is loaded and ready */
+                var dealerId = data.dealerId;
+                var widget = new CarcodeWidget();
+                var buttons = [];
+                if (dealerId == 51178) {//Longmont
+                    buttons = document.querySelectorAll(".sms-button-longmont");
+                    widget = new CarcodeWidget_j9d88ee1();
+                } else {
+                    buttons = document.querySelectorAll(".sms-button-loveland");
+                    widget = new CarcodeWidget_gwfzx6();
+                }
+                for (var i = 0; i < buttons.length; i++) {
+                    buttons[i].onclick = widget.clickHandler;
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+
+<a class="sms-button-loveland"
+   href="sms:+12017787138"
+   data-make="Ford"
+   data-model="Transit Cargo Van"
+   data-stock_no="15834"
+   data-vin="1FTNR2ZM1FKA92729"
+   data-year="2015"
+   data-status="New">Text Loveland</a>
+
+<a class="sms-button-longmont"
+   href="sms:+19702968224"
+   data-make="Ford"
+   data-model="Transit Cargo Van"
+   data-stock_no="15834"
+   data-vin="1FTNR2ZM1FKA92729"
+   data-year="2015"
+   data-status="New">Text Longmont</a>
+<br>
+<a class="sms-button-loveland"
+   href="sms:+12017787138"
+   data-make="Ford"
+   data-model="Transit Cargo Van"
+   data-stock_no="15834"
+   data-vin="1FTNR2ZM1FKA92729"
+   data-year="2015"
+   data-status="New">Text Loveland</a>
+
+<a class="sms-button-longmont"
+   href="sms:+19702968224"
+   data-make="Ford"
+   data-model="Transit Cargo Van"
+   data-stock_no="15834"
+   data-vin="1FTNR2ZM1FKA92729"
+   data-year="2015"
+   data-status="New">Text Longmont</a>
+<br>
+<a class="sms-button-loveland"
+   href="sms:+12017787138"
+   data-make="Ford"
+   data-model="Transit Cargo Van"
+   data-stock_no="15834"
+   data-vin="1FTNR2ZM1FKA92729"
+   data-year="2015"
+   data-status="New">Text Loveland</a>
+
+<a class="sms-button-longmont"
+   href="sms:+19702968224"
+   data-make="Ford"
+   data-model="Transit Cargo Van"
+   data-stock_no="15834"
+   data-vin="1FTNR2ZM1FKA92729"
+   data-year="2015"
+   data-status="New">Text Longmont</a>
+
+
+
+
+<!--Longmont -->
+<script src='https://www.carcodesms.com/widgets/51178.js' type='text/javascript' async defer ></script>
+
+<!--Loveland -->
+<script src='https://www.carcodesms.com/widgets/52291.js' type='text/javascript' async defer ></script>
+</body>
+</html>
