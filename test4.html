@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        var carcodeScript = document.getElementById('carcode-script');
+        var make=document.getElementById("car_make").value;
+        var model=document.getElementById("car_model").value;
+        var vin=document.getElementById("metrics_vin").value;
+        var year=document.getElementById("year_car").value;
+        var status=document.getElementById("inv_type").value;
+        if (make) carcodeScript.setAttribute('data-make', make);
+        if (model) carcodeScript.setAttribute('data-model', model);
+        if (vin) carcodeScript.setAttribute('data-vin', vin);
+        if (year) carcodeScript.setAttribute('data-year', year);
+        if (status) carcodeScript.setAttribute('data-status', status);
+
+
+    </script>
+    <script id="carcode-script" src='https://www.carcodesms.com/widgets/106527.js'></script>
+
+</head>
+<body>
+<div id="car_make">maek</div>
+</body>
+</html>

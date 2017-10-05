@@ -11,19 +11,68 @@
     <script type='text/javascript'>
         window.__carcode = {
             skipButton: true,   /*doesn't attach default floating button to page*/
-            alwaysOpenForm: true, /* always open form, even on mobile */
-            ready: function() { /*fires when the Carcode configured widget script below is loaded and ready */
-
-                var widget = new CarcodeWidget(),
-                        buttons = document.querySelectorAll(".sms-button");
-                for (var i = 0; i < buttons.length; i++) {
-                    buttons[i].onclick = widget.clickHandler;
-                }
-            }
         };
+
+        $(document).ready(function(e){
+            var widget = new CarcodeWidget();
+            $(".sms-button").on("click", widget.clickHandler);
+        });
     </script>
 </head>
 <body>
+
+<script ​type=​'text/javascript'​>
+    function checkWidget() {
+        var el = document.getElementById("carcodesms-default-widget");
+        if (el) {
+            enhanceFunctionality(el);
+        } else {
+            setTimeout(checkWidget, 100);
+        }
+    }
+
+    function enhanceFunctionality(el) {
+        document.querySelector("#flexible-dealer-header div > [href='HoursAndDirections']").parentNode.appendChild(document.querySelector("#carcodesms-default-widget"));
+        el.style = '';
+        document.querySelector("#carcodesms-default-widget>*").style.height='32px';
+    }
+
+    checkWidget();
+</script​>
+
+
+<script>
+    window.__carcode = {
+        skipButton: false,
+        ready: function() {
+            var widget = new CarcodeWidget(),
+                    buttons = document.querySelectorAll(".sms-button");
+            for (var i = 0; i < buttons.length; i++) {
+                buttons[i].onclick = widget.clickHandler;
+            }
+        }
+    };
+</script>
+
+// Some CMS template code, something like:
+If ($currentDealer == “Nissan”) {
+<script src='https://qa-dsg11-www.carcodesms.com/widgets/s/0a0777.js' type='text/javascript' defer></script>
+<script src='https://qa-dsg11-www.carcodesms.com/widgets/s/iopdb6.js' type='text/javascript' defer></script>
+} else {
+<script src='https://qa-dsg11-www.carcodesms.com/widgets/s/iopdb6.js' type='text/javascript' defer></script>
+<script src='https://qa-dsg11-www.carcodesms.com/widgets/s/0a0777.js' type='text/javascript' defer></script>
+}
+
+
+
+<a class="btn btn-block btn-default sms-button"
+   href="sms:+19107781897"
+   data­make="Chrysler"
+   data­model=""
+   data­stock_no="GN101348"
+   data­vin="1C3CCCAG2GN101348"
+   data­year="1C3CCCAG2GN101348">Text Us</a>
+
     <a href="sms://+16264145621"
        class="sms-button"
        style="background-color: orange; width: 95%; margin: 10px auto; display: block; padding: 15px 0; text-align: center; color: white; font-weight: bold;"
