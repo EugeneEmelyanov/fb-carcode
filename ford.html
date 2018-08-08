@@ -11,15 +11,24 @@
     <!--ForDirect code starts below this line -->
 
     <!-- In order to make it work you need the following:
+    0. Manual control
     1. Script A
     2. Script B
     3. Specify data-numbers data-title like in Example 1 on dealer's CTA. Please, note, that CTA should be <a href element -->
 
+    <!-- Manual controll -->
+    <script>
+      window.__carcode = {
+        manualControl: true,
+        alwaysOpenForm: true,
+        skipButton: true,
+      };
+    </script>
     <!--Script A. default Ford.com widget. If you would like to change look&feel, please, contact jcleverly@edmunds.com -->
-    <script src='https://www.carcodesms.com/widgets/50082.js' type='text/javascript' async defer ></script>
+    <script src='https://www.carcodesms.com/widgets/50082.js' type='text/javascript' defer ></script>
 
     <!--Script B. CarCode sdk script -->
-    <script src="https://www.carcodesms.com/widget_assets/js/sdks/50082.js" type="text/javascript"></script>
+    <script src="./js/newSDK.js" type="text/javascript" defer></script>
 
 </head>
 <body>
